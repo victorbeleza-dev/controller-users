@@ -1,81 +1,50 @@
   
 <template>
-    <div id="user-list" class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <h1 class="text-center">Lista de Usuarios</h1>
-          <table class="table">
-            <tr v-for="(usuario) in usuarios" v-bind:key="usuario.id" v-bind:name="usuario.name">
-              <td class="text-left">{{usuario.name}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+    <div class="body">      
+      <b-navbar alignt="center" toggleable="lg" type="dark" variant="info">
+        <b-navbar-brand href="#">Controle de usuários</b-navbar-brand>
+      </b-navbar>
+      <b-card class="card-container" align-h="center">
+         <meu-menu :rotas="routes"/>
+        <router-view></router-view>
+       </b-card>
     </div>
 </template>
 
 <script>
+
+import { routes } from './routes';
+import Menu from './components/menu/Menu.vue';
+
 export default {
 
-  data() {
-    return {
-      titulo: "Controle de usuários",
-        usuarios: []
-    };
+  components: {
+    'meu-menu': Menu
   },
 
-  created(){
-    this.getUsers();
-  },
+  data(){
 
-  methods: {
-
-    getUsers () {
-     let promise = this.$http.get('http://127.0.0.1:8000/api/usuarios');
-      promise.then(res => {
-
-        res.json().then(usuarios => this.usuarios = usuarios.data);
-      
-      })
-    },
-
-    addNewTask () {
-    },
-
-    editTask () {
-    },
-
-    updateTask () {
-      
-    },
-
-    deleteTask (id) {
-     
+    return{
+      routes
     }
   }
-
 };
 
 </script>
 
 <style lang="scss">
 
-.table{
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-
-.container {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+  .body{
+    background-color:darkgrey;
+    align-content: center;
     align-items: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    text-align: center;
+    align-self: center;
+    height: 100%;
+  }
+
+  .card-container{
+    height: 1080px;
+    width: 900px;
   }
 </style>
