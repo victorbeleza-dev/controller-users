@@ -12,7 +12,7 @@
 
         </b-form-group>
 
-             <b-form-group label="Cpf:">
+        <b-form-group label="Cpf:">
 
             <b-form-input
             v-model="usuario.cpf"
@@ -127,6 +127,7 @@ import Usuario from '../../domain/usuario/Usuario';
         .then(() => alert('Usuário cadastrado com sucesso!'), err => console.log(err));
           
       },
+      
       onReset(evt) {
        this.usuario = new Usuario();
       }
