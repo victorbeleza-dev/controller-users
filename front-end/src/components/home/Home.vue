@@ -5,9 +5,9 @@
                 <template v-slot:cell(Ações)="row">
                     <b-button-group>
                         <b-dropdown right text="Menu">
-                            <b-dropdown-item v-b-modal="'modal-edit-user'" @click="openView(row.item)">Visualizar</b-dropdown-item>
-                            <b-dropdown-item v-b-modal="'modal-edit-user'" @click="openModal(row.item)">Editar</b-dropdown-item>
-                            <b-dropdown-item @click="deleteUser(row.item)" variant="danger">Deletar</b-dropdown-item>
+                            <b-dropdown-item v-b-modal="'modal-edit-user'" @click="openView(row.item)" v-b-tooltip.hover title="Visualizar usuário">Visualizar</b-dropdown-item>
+                            <b-dropdown-item v-b-modal="'modal-edit-user'" @click="openModal(row.item)" v-b-tooltip.hover title="Editar usuário">Editar</b-dropdown-item>
+                            <b-dropdown-item @click="deleteUser(row.item)" variant="danger" v-b-tooltip.hover title="Deletar usuário">Deletar</b-dropdown-item>
                         </b-dropdown>
                     </b-button-group>
                 </template>
@@ -114,12 +114,10 @@
                     placeholder="Insira o estado:">
                     </b-form-input>
 
-                </b-form-group>
+                </b-form-group>         
                 
-               
-                
-                <b-button variant="primary" v-if="viewUser" @click="updateUser()">Update</b-button>
-                <b-button class="mt-3" block @click="$bvModal.hide('modal-edit-user')">Fechar</b-button>
+                <b-button variant="success" v-b-tooltip.hover title="Atualizar Usuário" v-if="viewUser" @click="updateUser()">Atualizar</b-button>
+                <b-button class="mt-3" v-b-tooltip.hover title="Fechar a janela" block @click="$bvModal.hide('modal-edit-user')">Fechar</b-button>
             </b-modal>
 
     </div>

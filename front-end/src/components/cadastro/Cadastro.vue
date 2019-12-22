@@ -99,8 +99,8 @@
         
         </b-form-group>
 
-      <b-button type="submit" variant="primary">Enviar</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button type="submit" variant="primary" v-b-tooltip.hover title="Cadastrar usuário">Cadastrar</b-button>
+      <b-button type="reset" variant="danger" v-b-tooltip.hover title="Resetar campos">Reset</b-button>
     </b-form>
   </div>
 </template>

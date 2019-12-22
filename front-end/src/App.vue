@@ -4,7 +4,7 @@
       <b-navbar alignt="center" toggleable="lg" type="dark" variant="info">
         <b-navbar-brand href="#">Controle de usuários</b-navbar-brand>
       </b-navbar>
-      <b-card class="card-container" align-h="center">
+      <b-card id="card-container" class="card-container" header-border-variant="secondary">
          <meu-menu :rotas="routes"/>
         <router-view></router-view>
        </b-card>
@@ -47,4 +47,5 @@ export default {
     height: 1080px;
     width: 900px;
   }
+
 </style>
