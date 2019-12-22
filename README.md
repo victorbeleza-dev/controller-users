@@ -1,9 +1,11 @@
-# controller-users
+# Controller-users
 
-# pré requisitos
+# Pré requisitos
 
 -Ter o MySql instalado;
 
 -Ter o Composer instalado;
 
 -Ter o Php instalado;
+
+-Ter o Vue.js;
