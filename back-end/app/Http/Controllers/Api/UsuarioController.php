@@ -45,7 +45,7 @@ class UsuarioController extends Controller{
             if(config('app.debug')){
                 return response()->json((ApiError::errorMessage($e->getMessage(), 1010)));
             }
-            return response()->json((ApiError::errorMessage('Ocorreu um erro ao realizar a operação', 1010)));
+            return response()->json((ApiError::errorMessage('Ocorreu um erro ao realizar a operação de criar', 1010)));
         }
 
     }
@@ -64,10 +64,25 @@ class UsuarioController extends Controller{
 
         } catch (\Exception $e){
             if(config('app.debug')){
-                return response()->json((ApiError::errorMessage($e->getMessage(), 1010)));
+                return response()->json((ApiError::errorMessage($e->getMessage(), 1011)));
             }
-            return response()->json((ApiError::errorMessage('Ocorreu um erro ao realizar a operação', 1010)));
+            return response()->json((ApiError::errorMessage('Ocorreu um erro ao realizar a operação de atualizar', 1011)));
         }
 
+    }
+
+    public function delete(Usuario $id){
+
+        try{
+            $id->delete();
+
+            return response()->json(['data' => ['msg' => 'Usuario:' . $id->name . ' removido com sucesso!']], 200);
+
+        }catch (\Exception $e){
+            if(config('app.debug')){
+                return response()->json((ApiError::errorMessage($e->getMessage(), 1012)));
+            }
+            return response()->json((ApiError::errorMessage('Ocorreu um erro ao realizar a operação de remover', 1012)));
+        }
     }
 }

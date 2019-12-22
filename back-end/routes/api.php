@@ -14,5 +14,7 @@ Route::namespace('API')->group(function (){
 
        Route::post('/', 'UsuarioController@store')->name('store_usuario');
        Route::put('/{id}', 'UsuarioController@update')->name('update_usuario');
+
+       Route::delete('/{id}', 'UsuarioController@delete')->name('delete_usuario');
     });
 });
