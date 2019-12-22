@@ -12,14 +12,14 @@ class CreateTableUsers extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('cpf');
+            $table->char('cpf');
             $table->date('dataNascimento');
             $table->string('email');
-            $table->integer('telefone');
+            $table->char('telefone');
             $table->string('endereco');
             $table->string('cidade');
             $table->string('estado');
-            $table->integer('cep');
+            $table->char('cep');
             $table->timestamps();
         });
     }
