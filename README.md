@@ -21,3 +21,7 @@
 -Ainda no cmd com a pasta 'back-end aberta', execute: php artisan serve; "Esse comando irá subir seu servidor bakc-end"
 
 -Abra a pasta 'front-end' e execute os seguintes comandos: npm install; npm run dev; "O primeiro comando irá instalar as dependencias e o segundo irá subir o servidor"
+
+# Como funciona
+
+-Acesse a localhost:8080;
