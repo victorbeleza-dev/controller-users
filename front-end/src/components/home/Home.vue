@@ -69,10 +69,20 @@
                     required
                     type="char"
                     placeholder="Insira seu telefone:">
+                </b-form-input>
+
+                <b-form-group label="Cep">
+
+                    <b-form-input 
+                    v-model="usuario.cep"
+                    required
+                    type="char"
+                    placeholder="Insira seu cep:">
                     </b-form-input>
 
                 </b-form-group>
 
+                </b-form-group>
                 
                     <b-form-group label="Endereço">
 
@@ -106,16 +116,7 @@
 
                 </b-form-group>
                 
-                    <b-form-group label="Cep">
-
-                    <b-form-input
-                    v-model="usuario.cep"
-                    required
-                    type="char"
-                    placeholder="Insira seu cep:">
-                    </b-form-input>
-
-                </b-form-group>
+               
                 
                 <b-button variant="primary" v-if="viewUser" @click="updateUser()">Update</b-button>
                 <b-button class="mt-3" block @click="$bvModal.hide('modal-edit-user')">Fechar</b-button>

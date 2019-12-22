@@ -6,10 +6,12 @@ import { routes } from './routes';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import ViaCep from 'vue-viacep';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(BootstrapVue);
+Vue.use(ViaCep);
 
 const router = new VueRouter({ 
   routes,

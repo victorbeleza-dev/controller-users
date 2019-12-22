@@ -56,9 +56,19 @@
             </b-form-input>
 
         </b-form-group>
-
         
-             <b-form-group label="Endereço">
+        <b-form-group label="Cep">
+
+            <b-form-input
+            v-model="usuario.cep" v-on:keyup="consultaCep(usuario.cep)"
+            required
+            type="varchar"
+            placeholder="Insira seu cep:">
+            </b-form-input>
+
+        </b-form-group>
+
+        <b-form-group label="Endereço">
 
             <b-form-input
             v-model="usuario.endereco"
@@ -69,7 +79,7 @@
         </b-form-group>
 
         
-             <b-form-group label="Cidade">
+        <b-form-group label="Cidade">
 
             <b-form-input
             v-model="usuario.cidade"
@@ -78,27 +88,15 @@
             </b-form-input>
 
         </b-form-group>
-
-        
-             <b-form-group label="Estado" label-for="input-1">
+      
+        <b-form-group label="Estado" label-for="input-1">
 
             <b-form-input
             v-model="usuario.estado"
             required
             placeholder="Insira o estado:">
             </b-form-input>
-
-        </b-form-group>
         
-             <b-form-group label="Cep">
-
-            <b-form-input
-            v-model="usuario.cep"
-            required
-            type="char"
-            placeholder="Insira seu cep:">
-            </b-form-input>
-
         </b-form-group>
 
       <b-button type="submit" variant="primary">Enviar</b-button>
@@ -109,6 +107,7 @@
 
 <script>
 
+import User from '../../services/users_service';
 import Usuario from '../../domain/usuario/Usuario';
 
   export default {
@@ -116,7 +115,7 @@ import Usuario from '../../domain/usuario/Usuario';
     data() {
 
       return {
-        usuario: new Usuario(),
+        usuario: new Usuario()
       }
     },
     methods: {
@@ -130,6 +129,16 @@ import Usuario from '../../domain/usuario/Usuario';
       
       onReset(evt) {
        this.usuario = new Usuario();
+      },
+
+      consultaCep(cep){   
+        
+        this.$viaCep.buscarCep(cep).then((obj) => {
+          this.usuario.endereco = obj.logradouro;
+          this.usuario.cidade = obj.localidade;
+          this.usuario.estado = obj.uf;
+        });
+        
       }
     }
   }
