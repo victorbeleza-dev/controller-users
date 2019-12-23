@@ -20,7 +20,7 @@
 
 -Abra a pasta 'back-end' no cmd e execute: 'composer update' e depois 'npm install' e 'php artisan migrate'; "Esse comando irá criar as tabelas no seu banco de dados"
 
--Ainda no cmd com a pasta 'back-end aberta', execute: depois php artisan serve; "Esse comando irá subir seu servidor bakc-end"
+-Ainda no cmd com a pasta 'back-end' aberta, execute: 'php artisan serve'; "Esse comando irá subir seu servidor back-end"
 
 -Abra a pasta 'front-end' e execute os seguintes comandos: npm install e depois npm run dev; "O primeiro comando irá instalar as dependencias e o segundo irá subir o servidor"
 
